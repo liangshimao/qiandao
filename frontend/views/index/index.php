@@ -1,282 +1,239 @@
-<?php
-use yii\helpers\Url;
-?>
 <!DOCTYPE html>
-<html lang="en" class="hidden-html">
+<html xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="/css/style.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>批量签到</title>
+    <script type="text/javascript" src="/js/jquery-1.9.1.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/encode.js" charset="utf-8"></script>
     <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?d90f1bc0b59424fc2fa6128b2acfd6d2";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    <meta name="keywords" content="悦动力,优悦佳品,饮料,新疆优悦佳品" >
-    <meta name="description" content="悦动力,优悦佳品,饮料">
-    <link rel="shortcut icon" href="/images/youyue.ico">
-
-    <meta name="keywords" content="悦动力,优悦佳品,饮料" >
-    <meta name="description" content="悦动力,优悦佳品,饮料">
-    <link rel="shortcut icon" href="/images/youyue.ico">
-    <link rel="shortcut icon" href="/images/youyue.ico">
-    <title>悦动力-中国饮料的领导者</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <style>
-        .nav-width .nav-link a:hover {
-            color: #63ac48;
-            text-decoration: none;
-        a {text-decoration: none;}
-    </style>
-</head>
-
-<body>
-
-<div class="fixed_r">
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-</div>
-<div class="num_box"  style="z-index: 0">
-    <div class="num" id="page-one">
-        <div class="block-all1" id="page2font"></div>
-        <div class="picture-bar">
-            <div class="bar-content">
-                <ul>
-                    <li><img src="/images/picture02-bar1.png"></li>
-                    <li><img src="/images/picture02-bar2.png"></li>
-                    <li><img src="/images/picture02-bar3.png"></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="num" id="page-two">
-        <div class="block-all2" id="page2font">
-            <!--<h3>让餐厅采购<br/>省钱省心省时间</h3>
-            <div class="info">源头严格优选 &nbsp;  产品火速送达<br/>餐厅采购更轻松</div>-->
-        </div>
-        <div class="picture-bar">
-            <div class="bar-content">
-                <ul>
-                    <li><img src="/images/picture02-bar1.png"></li>
-                    <li><img src="/images/picture02-bar2.png"></li>
-                    <li><img src="/images/picture02-bar3.png"></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="num" id="page-three">
-        <div class="block-all3" id="page3font"></div>
-        <div class="picture-bar">
-            <div class="bar-content">
-                <ul>
-                    <li><img src="/images/picture02-bar1.png"></li>
-                    <li><img src="/images/picture02-bar2.png"></li>
-                    <li><img src="/images/picture02-bar3.png"></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="num" id="page-four">
-        <div class="block-all4" id="page4font"></div>
-        <div class="picture-bar">
-            <div class="bar-content">
-                <ul>
-                    <li><img src="/images/picture02-bar1.png"></li>
-                    <li><img src="/images/picture02-bar2.png"></li>
-                    <li><img src="/images/picture02-bar3.png"></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="num" id="page-four1">
-        <div class="block-all4" id="page4font1"></div>
-        <div class="picture-bar">
-            <div class="bar-content">
-                <ul>
-                    <li><img src="/images/picture02-bar1.png"></li>
-                    <li><img src="/images/picture02-bar2.png"></li>
-                    <li><img src="/images/picture02-bar3.png"></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="num" id="page-four2">
-        <div class="block-all4" id="page4font2"></div>
-        <div class="picture-bar">
-            <div class="bar-content">
-                <ul>
-                    <li><img src="/images/picture02-bar1.png"></li>
-                    <li><img src="/images/picture02-bar2.png"></li>
-                    <li><img src="/images/picture02-bar3.png"></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="num" id="page-five">
-        <!--<div class="link-icon-al">
-            <div class="link-block">
-                <div class="table-cen"><p><span class="left"><a href="newbie.html#a-2" target="_blank"><img src="http://image.meicai.cn/meicaicn/wp-content/images/link-icon-1.png" width="125"><br/>注册与登录</a></span></p></div>
-                <div class="table-cen"><p><span class="left pad-lt"><a href="newbie.html#a-3" target="_blank"><img src="http://image.meicai.cn/meicaicn/wp-content/images/link-icon-2.png" width="123"><br/>如何订货</a></span></p></div>
-                <div class="table-cen"><p><span class="left pad-lr"><a href="newbie.html#a-5" target="_blank"><img src="http://image.meicai.cn/meicaicn/wp-content/images/link-icon-3.png" width="118"><br/>退换货政策</a></span></p></div>
-                <div class="table-cen"><p><span class="right"><a href="newbie.html#a-7" target="_blank"><img src="http://image.meicai.cn/meicaicn/wp-content/images/link-icon-4.png" width="129"><br/>常见问题</a></span></p></div>
-            </div>
-        </div>-->
-        <div class="qr-code-al">
-<!--            <div class="qr-code">-->
-<!--                <div class="table-cen">-->
-<!--                    <div class="p">-->
-<!--                        <img src="http://image.meicai.cn/meicaicn/wp-content/images/mc-code.png" style="padding:2px; background:#fff">-->
-<!--                        <div class="code-text">悦动力品牌</div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="table-cen">-->
-<!--                    <div class="p p2">-->
-<!--                        <img src="http://image.meicai.cn/meicaicn/wp-content/images/mc-wb.png">-->
-<!--                        <div class="code-text">关注微博</div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="table-cen">-->
-<!--                    <div class="p p3">-->
-<!--                        <img src="http://image.meicai.cn/meicaicn/wp-content/images/mc-app.png">-->
-<!--                        <div class="code-text">商城app</div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="table-cen none">-->
-<!--                    <div class="p p4">-->
-<!--                        <img src="http://image.meicai.cn/meicaicn/wp-content/images/mc-wx.png">-->
-<!--                        <div class="code-text">微信商城</div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-            <div class="footer-al">
-                <div class="footer">
-                    <p><span>关于</span><br/><a href="<?=Url::toRoute('/company/index')?>">优悦佳品</a><br/><a  href="javascript:;">公司资讯</a></p>
-                    <p><span>联系</span><br/><a href="<?=Url::toRoute('/job/index')?>">加入我们</a><br/><a href="<?=Url::toRoute('/cooperation/index')?>">合作共赢</a></p>
-                    <p><span>帮助</span><br/><a href="javascript:;">新手指南</a><br/><a href="javascript:;">常见问题</a></p>
-                    <p><span>版权信息</span><br/>copyright © 2014-2016 新疆优悦佳品饮料有限公司 010-61770976<br/>新ICP备17000073号</p>
-                    <p class="none"><a href="javascript:;" target="_blank"><img src="/images/cert.png"></a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<input type="hidden" value="0" class="ddw"/>
-<input type="hidden" value="0" class="ddw2"/>
-
-
-
-<nav class="nav-header"  style="z-index: 99999999999999999">
-    <div class="nav-width">
-        <div class="logo"><a href="<?=Url::toRoute('/index/index')?>"><img src="/images/logo.png" /></a></div>
-        <div class="nav-link">
-            <ul>
-                <li><a href="<?=Url::toRoute('/index/index')?>" style="color:#63ac48;text-decoration: none;">首页</a></li>
-                <li><a href="<?=Url::toRoute('/company/index')?>" style="text-decoration:none;">公司介绍</a></li>
-<!--                <li><a href="--><?//=Url::toRoute('/information/index')?><!--" style="text-decoration:none;">最新资讯</a></li>-->
-                <li><a href="<?=Url::toRoute('/job/index')?>" style="text-decoration:none;">公司招聘</a></li>
-                <li><a href="<?=Url::toRoute('/cooperation/index')?>" style="text-decoration:none;">合作共赢</a></li>
-                <li><a href="<?=Url::toRoute('/download/index')?>" style="text-decoration:none;">悦动力商城</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<script src="/js/jquery-1.10.2.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/mian.js"></script>
-<script src="/js/html5media.min.js"></script>
-<script type="text/javascript" src="/js/scroll.js" ></script>
-<script type="text/javascript" src="/js/jquery.mousewheel.js" ></script>
-<script>
-    var myVideo=document.getElementById("video1");
-    function showvideo(){
-        $(".videoshow").show();
-        myVideo.play();
-    }
-    function closevideo(){
-        $(".videoshow").hide();
-        myVideo.pause();
-    }
-    window.onload = changeImmed;
-    window.onresize = change;
-    function change(){
-        setInterval(function(){
-            changeImmed();
-        },500);
-    }
-    function changeImmed(){
-        var bWidth = (document.body.clientWidth / 1920).toFixed(2);
-        document.getElementById('page1font').style.zoom = bWidth;
-        document.getElementById('page2font').style.zoom = bWidth;
-        document.getElementById('page3font').style.zoom = bWidth;
-        document.getElementById('page4font').style.zoom = bWidth;
-    }
-
-
-
-
-
-
-    function isIE(){
-        if(!!window.ActiveXObject || "ActiveXObject" in window){
-            return true;
-        }else{
+        function stop(){
             return false;
         }
-    }
+        document.oncontextmenu=stop;
+    </script>
+</head>
+<body>
+<div>
+    <center style="margin-top:5%">
+        <a>
+            <input id="file" type="file" name="上传账号文件" onchange="checkAccountList(this.files);"/>
+        </a>
 
-    function IEVersion(){
-        var rv = -1;
-        if (navigator.appName == 'Microsoft Internet Explorer'){
-            var ua = navigator.userAgent;
-            var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
-            if (re.exec(ua) != null)
-                rv = parseFloat( RegExp.$1 );
-        }else if (navigator.appName == 'Netscape'){
-            var ua = navigator.userAgent;
-            var re  = new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})");
-            if (re.exec(ua) != null)
-                rv = parseFloat( RegExp.$1 );
+        <div style="margin-top: 20px;margin-bottom:20px;">
+            分析完成,共计:<a id="totalAccount">0</a>个账号! 其中<a id="repeatSum">0</a>个已被过滤!
+        </div>
+        选择区域:
+        <select name="zone" id="zone">
+            <option value="1500200">南区</option>
+            <option value="1500100">北区</option>
+        </select>
+        <button name="开始" value="开始" id="start">开始</button>
+        <button name="再次签到" value="再次签到" id="restart">再次签到</button>
+        <div style="margin-">
+            共计:<a id="a1">0</a>个账号，正在签到第<a id="a2">0</a>个，剩余<a id="a3">0</a>个。
+        </div>
+        <table style="margin-top:10px;" id="accountTable" border="1px; solid; red;">
+            <tr>
+                <td>账号</td>
+                <td>签到状态</td>
+            </tr>
+        </table>
+    </center>
+
+</div>
+</body>
+<script type="text/javascript" charset="utf-8">
+    var sleepTime = 0;
+    var accountArr = new Array();
+    var failArr = new Array();
+    //检查账号
+    function checkAccountList(files){
+        $("#accountTable").html("");
+        var $tr = $("<tr>").append($("<td>").text("账号"))
+            .append($("<td>").text("签到状态"));
+        $("#accountTable").append($tr);
+        if (files.length) {
+            var file = files[0];
+            var reader = new FileReader();
+            if (/text\/\w+/.test(file.type)) {
+                reader.onload = function() {
+
+                    var strArr = this.result.split("#");
+                    var repeatCount = 0;
+                    for(var i=1; i<strArr.length; i++){
+                        var lineStr = strArr[i].substr(0, strArr[i].indexOf("----"));
+                        var isRepeat = false;
+                        for(var j=0; j<accountArr.length; j++){
+                            if(lineStr == accountArr[j]){
+                                isRepeat = true;
+                                repeatCount++;
+                                break;
+                            }
+                        }
+                        if(!isRepeat){
+                            //加入数据
+                            accountArr.push(lineStr);
+                            //加入DOM
+                            var $tr = $("<tr>").attr("id", lineStr)
+                                .append($("<td>").text(lineStr))
+                                .append($("<td>").text("准备签到"));
+                            $("#accountTable").append($tr);
+                        }
+                    }
+
+                    $("#totalAccount").text(accountArr.length);
+                    $("#a1").text(accountArr.length);
+
+                    if(0 != repeatCount){
+                        alert("有重复账号" + repeatCount + "个已被过滤!");
+                    }
+                    $("#repeatSum").text(repeatCount);
+                }
+                reader.readAsText(file);
+            }
         }
-        return rv;
     }
 
-    if (isIE()) {
-        if (IEVersion() <= 8) {
-            var h = ($(window).height()+$(window).height()*0.15)+'px';
-            $('#video').height(h);
-            $('#video').width($(window).width()+'px');
-            $('#video').css({'overflow':'hidden'});
+    $("#start").bind("click", function(){
+        if ("" == $("#file").val() || accountArr.length <= 0) {
+            alert("请选择文件!");
+            return;
+        }
+
+        submitt(0);
+    });
+
+    $("#restart").bind("click", function(){
+        if (0 == failArr.length) {
+            alert("没有失败账号!");
+            return;
+        }
+
+        resubmit(0);
+    });
+
+    function sleep(numberMillis) {
+
+        if (0 == numberMillis) {
+            return;
+        }
+        var now = new Date();
+        var exitTime = now.getTime() + numberMillis;
+        while (true) {
+            now = new Date();
+            if (now.getTime() > exitTime)
+                return;
+        }
+    }
+
+    function submitt(i){
+        var nowi = i;
+        if (undefined == accountArr[i]) {
+            accountArr = new Array();
+            $("#file").val("");
+            $("#a1").text("0");
+            $("#a2").text("0");
+            $("#a3").text("0");
+            checkfail();
+            alert("签到完成! 签到失败:" + failArr.length + "个!正在对失败账号重新签到!");
+            resubmit(0);
+            return;
         }else{
-            $('#video').height('100%');
-            $('#video').width('100%');
-            $('#video').css({'overflow':'hidden'});
-
+            $("#a2").text(i);
+            $("#a3").text(accountArr.length - i);
+        }
+        var paramData = {
+            "useraccount" : "1801012411",
+            "marks" : "inside",
+            "login" : base64encode(utf16to8(accountArr[i])),
+            "zoneid" : $("#zone").val(),
+            "_" : new Date().getTime()
         };
-    }else{
-        $('#video').height('100%');
-        $('#video').width('100%');
-        $('#video').css({'overflow':'hidden'});
+        $.ajax({
+            async:false,
+            url: "http://inside.wot.kongzhong.com/inside/wotinside/signact/sign",
+            type: "GET",
+            dataType: 'jsonp',
+            jsonp: 'jsonpcallback',
+            data: paramData,
+            timeout: 5000,
+            beforeSend: function(){
+                //jsonp 
+            },
+            success: function (result) {
+                var resultText = "未知";
+                if ("1" == result.state) {
+                    resultText = "签到成功";
+                }else if ("0" == result.state) {
+                    resultText = "已签到"
+                }
 
-    };
+                $($("#" + accountArr[nowi]).children()[1]).text(resultText);
 
+                sleep(sleepTime);
+                submitt(++i)
+            }
+        });
+    }
 
+    function checkfail(){
+        failArr = new Array();
+        $.each($("td"), function(){
+            if("准备签到" == $(this).text() || "未知" == $(this).text()){
+                failArr.push($(this).prev().text());
+            }
+        });
+    }
+
+    function resubmit(i){
+        var nowi = i;
+        if (undefined == failArr[i]) {
+            failArr = new Array();
+            $("#file").val("");
+            $("#a1").text("0");
+            $("#a2").text("0");
+            $("#a3").text("0");
+            checkfail();
+            alert("签到完成! 签到失败:" + failArr.length + "个!");
+
+            return;
+        }else{
+            $("#a2").text(i);
+            $("#a3").text(failArr.length - i);
+        }
+        var paramData = {
+            "useraccount" : "1801012411",
+            "marks" : "inside",
+            "login" : base64encode(utf16to8(failArr[i])),
+            "zoneid" : $("#zone").val(),
+            "_" : new Date().getTime()
+        };
+        $.ajax({
+            async:false,
+            url: "http://inside.wot.kongzhong.com/inside/wotinside/signact/sign",
+            type: "GET",
+            dataType: 'jsonp',
+            jsonp: 'jsonpcallback',
+            data: paramData,
+            timeout: 5000,
+            beforeSend: function(){
+                //jsonp 
+            },
+            success: function (result) {
+                var resultText = "未知";
+                if ("1" == result.state) {
+                    resultText = "签到成功";
+                }else if ("0" == result.state) {
+                    resultText = "已签到"
+                }
+
+                $($("#" + failArr[nowi]).children()[1]).text(resultText);
+
+                sleep(sleepTime);
+                resubmit(++i)
+            }
+        });
+    }
 
 </script>
-</body>
 </html>

@@ -13,17 +13,7 @@ class IndexController extends BaseController
 {
     public function actionIndex()
     {
-        if(self::isMobile()){
-            return $this->renderPartial('mobile_index');
-        }else{
-            return $this->renderPartial('index');
-        }
+        return $this->renderPartial('index');
     }
-
-    public function actionIndexMobile()
-    {
-        return $this->renderPartial('mobile_index');
-    }
-    
     
 }

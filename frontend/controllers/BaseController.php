@@ -7,45 +7,27 @@
  * Time: 下午4:18
  */
 namespace frontend\controllers;
+use common\components\ShowMessage;
+use yii\helpers\Url;
 use yii\web\Controller;
+use Yii;
 class BaseController extends Controller
 {
+
+    public $request;
+    public $session;
+    public $userid;
+
     public function init()
     {
         parent::init();
-    }
+        $this->request = Yii::$app->request;
 
-    public static function isMobile()
-    {
-        $agent = strtolower($_SERVER['HTTP_USER_AGENT']);
-        $is_pc = (strpos($agent, 'windows nt')) ? true : false;
-        $is_iphone = (strpos($agent, 'iphone')) ? true : false;
-        $is_linux = (strpos($agent, 'linux')) ? true : false;
-        $is_mac = (strpos($agent, 'mac os')) ? true : false;
-        $is_android = (strpos($agent, 'android')) ? true : false;
-        $is_ipad = (strpos($agent, 'ipad')) ? true : false;
-
-        if($is_iphone){
-            return  true;
-        }
-
-        if($is_android){
-            return  true;
-        }
-
-        if($is_ipad){
-            return  true;
-        }
-
-        if($is_pc){
-            return  false;
-        }
-        if($is_linux){
-            return  false;
-        }
-
-        if($is_mac){
-            return  false;
+        $this->session = Yii::$app->session;
+        $this->userid = $this->session->get('userid');
+        if(empty($this->userid)){
+            $this->redirect('/login/index');
         }
     }
+    
 }

@@ -12,7 +12,7 @@ use common\components\Tools;
                     <tbody>
                     <tr>
                         <td style="padding:0px 10px;"><img src="/images/xh829.png" height="34" width="34"></td>
-                        <td style="font-size:18px;padding-right:20px"><b>优悦佳品后台管理系统</b></td>
+                        <td style="font-size:18px;padding-right:20px"><b>签到系统后台管理系统</b></td>
                     </tr>
                     </tbody>
                 </table>
@@ -20,7 +20,6 @@ use common\components\Tools;
             <td width="80%">
                 <div class="topmenubg">
                     <span menu="0" class="spanactive"><i class="glyphicon glyphicon-th-large"></i> 基础数据</span>
-                    <span menu="1"><i class="glyphicon glyphicon-glass"></i> 优悦佳品</span>
                 </div>
             </td>
         </tr>
@@ -70,61 +69,8 @@ use common\components\Tools;
                             <i class="glyphicon glyphicon-user"></i>
                             用户列表
                         </div>
-                        <div class="menutwo" data-url="<?=Url::toRoute('/basic/user/person')?>" name="personal">
-                            <i class="glyphicon glyphicon-heart"></i>
-                            个人信息
-                        </div>
                     </div>
                 </div>
-                <div id="left_menu_1" style="display:none">
-                    <div class="menuone" disab="1" status="true">
-                        <i class="glyphicon glyphicon-picture"></i>
-                        图片管理
-                        <span class="caret caret-upc"></span>
-                    </div>
-                    <div class="menulist" style="">
-                        <div class="menutwo" data-url="<?=Url::toRoute('/youyue/banner/index')?>" name="banner">
-                            <i class="glyphicon  glyphicon-film"></i>
-                            轮播图
-                        </div>
-                        <div class="menutwo" data-url="<?=Url::toRoute('/youyue/logo/index')?>" name="logo">
-                            <i class="glyphicon glyphicon-zoom-in"></i>
-                            logo管理
-                        </div>
-                        <div class="menutwo" data-url="<?=Url::toRoute('/youyue/ico/index')?>" name="ico">
-                            <i class="glyphicon  glyphicon-zoom-out"></i>
-                            ico管理
-                        </div>
-                    </div>
-                    <div class="menuone" disab="1" status="true">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                        文字管理
-                        <span class="caret caret-upc"></span>
-                    </div>
-                    <div class="menulist" style="">
-                        <div class="menutwo" data-url="<?=Url::toRoute('/youyue/company/index')?>" name="company">
-                            <i class="glyphicon  glyphicon-file"></i>
-                            公司介绍
-                        </div>
-                        <div class="menutwo" data-url="<?=Url::toRoute('/youyue/history/index')?>" name="history">
-                            <i class="glyphicon glyphicon-time"></i>
-                            发展历程
-                        </div>
-                        <div class="menutwo" data-url="<?=Url::toRoute('/youyue/idea/index')?>" name="idea">
-                            <i class="glyphicon glyphicon-info-sign"></i>
-                            公司理念
-                        </div>
-                        <div class="menutwo" data-url="<?=Url::toRoute('/youyue/info/index')?>" name="info">
-                            <i class="glyphicon glyphicon-list-alt"></i>
-                            公司信息
-                        </div>
-                        <div class="menutwo" data-url="<?=Url::toRoute('/youyue/duty/index')?>" name="duty">
-                            <i class="glyphicon glyphicon-credit-card"></i>
-                            职位管理
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
 

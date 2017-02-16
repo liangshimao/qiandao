@@ -23,12 +23,8 @@ use backend\components\widgets\GoLinkPager;
     <tr>
         <th>ID</th>
         <th>用户名</th>
-        <th>真实姓名</th>
-        <th>手机号</th>
-        <th>状态</th>
-        <th>注册时间</th>
-        <th>最后登录时间</th>
-        <th>登陆IP</th>
+        <th>密码</th>
+        <th>修改时间</th>
         <th>操作</th>
     </tr>
     </thead>
@@ -37,21 +33,15 @@ use backend\components\widgets\GoLinkPager;
         <tr>
             <td><?= ++$k; ?></td>
             <td><?= $val->name; ?></td>
-            <td><?= $val->realname; ?></td>
-            <td><?= $val->mobile; ?></td>
-            <td><?php echo $val->status == 1 ? '<i class="glyphicon glyphicon-ok-sign font-green">' : '<i class="glyphicon glyphicon-remove-sign font-red">' ?></td>
-            <td><?= $val->add_time; ?></td>
-            <td><?= $val->login_time; ?></td>
-            <td><?= $val->ip; ?></td>
+            <td><?= $val->password; ?></td>
+            <td><?= $val->edit_time; ?></td>
             <td>
                 <a class="btn btn-warning buttonbtn btn-info button"
-                   href="javascript:window.parent.edit(1,'修改用户信息','<?php echo Url::toRoute(['/basic/user/edit', 'id' => $val->id]); ?>', 600, 300)"><i
-                        class="glyphicon glyphicon-edit"></i> 修改</a>
-                <?php if($val->id != 1):?>
+                   href="javascript:window.parent.edit(1,'修改用户密码','<?php echo Url::toRoute(['/basic/user/edit', 'id' => $val->id]); ?>', 600, 300)"><i
+                        class="glyphicon glyphicon-edit"></i> 修改密码</a>
                 <a class="btn btn-danger button"
                    href="javascript:confirmurl('<?= Url::toRoute(['/basic/user/delete', 'id' => $val->id]); ?>', '确定要刪除<?=$val->name?>吗?')"><i
-                        class="glyphicon glyphicon-trash"></i>删除</a>
-                <?php endif;?>
+                        class="glyphicon glyphicon-trash"></i> 删除</a>
             </td>
         </tr>
     <?php endforeach; ?>

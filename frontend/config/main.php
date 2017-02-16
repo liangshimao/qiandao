@@ -16,6 +16,7 @@ $config = [
     'components' => [
         'request' => [
             'cookieValidationKey' => 'Joy6w5Z_l-w6HIVv13B70X4zoIVfPG4u',
+            'enableCsrfValidation' => false,
         ],
         'user' => [
             'identityClass' => 'app\models\User',
@@ -37,7 +38,7 @@ $config = [
             'class' => 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'suffix' => '.html',
+            'suffix' => '',
             'cache' => false,
             'rules' => [
             ],

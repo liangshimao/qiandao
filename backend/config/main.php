@@ -14,8 +14,7 @@ $config = [
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'index',
     'modules' => [
-        'basic' => ['class' => 'backend\modules\basic\BasicModule'], 
-        'youyue' => ['class' => 'backend\modules\youyue\YouyueModule'],
+        'basic' => ['class' => 'backend\modules\basic\BasicModule'],
     ],
     'components' => [
         'request' => [

@@ -7,7 +7,7 @@
  * Time: 下午4:18
  */
 namespace backend\controllers;
-use backend\components\ShowMessage;
+use common\components\ShowMessage;
 use yii\web\Controller;
 use Yii;
 use yii\helpers\Url;
@@ -25,7 +25,6 @@ class BaseController extends Controller
     public function init()
     {
         parent::init();
-        $this->cache = Yii::$app->cache;
 
         $this->request = Yii::$app->request;
 

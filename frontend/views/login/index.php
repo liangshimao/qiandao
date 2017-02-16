@@ -6,8 +6,8 @@ use yii\helpers\Url;
 <head>
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>签到系统后台登陆</title>
-    <script src="/js/jquery-1.9.1.min.js"></script>
+    <title>批量签到登陆</title>
+    <script src="/js/jquery-1.9.1.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/css/webmain.css">
@@ -26,11 +26,11 @@ use yii\helpers\Url;
 <div align="center">
     <div class="ltoplog">
         <img src="/images/logo.png" align="absmiddle" style="margin-right:15px;" height="60" width="60">
-        <b style="font-size:22px">签到系统后台管理系统</b></div>
+        <b style="font-size:22px">批量签到系统登陆</b></div>
     <div class="blank30"></div>
     <div class="lmaisft">
 
-        <form style="padding:20px;padding-left:80px" name="myform" action="<?=Url::toRoute('/login/login')?>" method="post">
+        <form style="padding:20px;padding-left:80px" name="myform" action="<?=Url::toRoute('/login/login')?>" method="post" id="myform">
 
             <div class="blank10"></div>
             <div>
@@ -48,7 +48,8 @@ use yii\helpers\Url;
 
             <div class="blank10"></div>
             <div align="left">
-                <button type="submit" class="btn btn-success" name="button"><i class="glyphicon glyphicon-hand-up"></i> 登录</button>&nbsp;<span id="msgview"></span>
+                <button type="button" class="btn btn-success" name="button" onclick="login()"><i class="glyphicon glyphicon-hand-up"></i> 登录</button>&nbsp;<span id="msgview"></span>
+                <span id="tip" style="color:red;display:none;">密码错误</span>
             </div>
         </form>
 
@@ -56,10 +57,35 @@ use yii\helpers\Url;
 
     <div class="blank20"></div>
     <div align="center" style="height:30px;line-height:30px;color:#555555">
-        Copyright &copy;2016 签到系统后台管理系统 &nbsp;&nbsp;
+        Copyright &copy;2016 批量签到系统 &nbsp;&nbsp;
     </div>
 
 </div>
+
+<script>
+    function login()
+    {
+        $.ajax({
+            url:"<?php echo Url::toRoute('/login/login_ajax')?>",
+            dataType:"json",
+            type:"post",
+            data:$("#myform").serialize(),
+            success:function (res) {
+                if(res.code == 200){
+                    if(res.data.status == 1){
+                        location.href="<?php echo Url::toRoute('/');?>";
+                    }else{
+                        $("#tip").html(res.msg);
+                        $("#tip").show();
+                        setTimeout(function(){
+                            $("#tip").hide();
+                        },3000);
+                    }
+                }
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
