@@ -39,7 +39,7 @@ class LoginController extends Controller
             OutPut::returnJson('密码错误',200,['status' => 0]);
         }
 
-        Yii::$app->getSession()->set("userid", $mInfo->id);
+        Yii::$app->getSession()->set("userid", $mInfo->id.'-'.time());
         OutPut::returnJson('登陆成功',200,['status' => 1]);
     }
 }

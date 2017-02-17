@@ -25,7 +25,7 @@ class BaseController extends Controller
 
         $this->session = Yii::$app->session;
         $this->userid = $this->session->get('userid');
-        if(empty($this->userid)){
+        if(empty($this->userid) || time() - substr($this->userid,strpos($this->userid,'-')+1) > 7200){
             $this->redirect('/login/index');
         }
     }
