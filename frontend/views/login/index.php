@@ -73,7 +73,7 @@ use yii\helpers\Url;
             success:function (res) {
                 if(res.code == 200){
                     if(res.data.status == 1){
-                        location.href="<?php echo Url::toRoute('/');?>";
+                        location.href="<?php echo Url::toRoute('/index/index');?>";
                     }else{
                         $("#tip").html(res.msg);
                         $("#tip").show();
