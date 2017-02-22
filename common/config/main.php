@@ -9,28 +9,28 @@ return [
         'fcache' => [
             'class' => 'yii\caching\FileCache',
         ],
-//        'cache' => [
-//            'class' => 'yii\redis\Cache',
-//        ],
-//        'redis' => [
-//            'class' => 'yii\redis\Connection',
-//            'hostname' => '127.0.0.1',
-//            'port' => 6379,
-//            'database' => 0,
-//        ],
+        'cache' => [
+            'class' => 'yii\redis\Cache',
+        ],
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => '127.0.0.1',
+            'port' => 6379,
+            'database' => 0,
+        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',
             'useFileTransport' => true,
         ],
-//        'session' => [
-//            'class' => 'yii\redis\Session',
-//            'redis' => [
-//                'hostname' => '127.0.0.1',
-//                'port' => 6379,
-//                'database' => 0,
-//            ],
-//            'keyPrefix' => 'sample',
-//        ],
+        'session' => [
+            'class' => 'yii\redis\Session',
+            'redis' => [
+                'hostname' => '127.0.0.1',
+                'port' => 6379,
+                'database' => 0,
+            ],
+            'keyPrefix' => 'sample',
+        ],
     ],
 ];
